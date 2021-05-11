@@ -63,6 +63,7 @@ class PyAML:
                 else:
                     element.fun = result
                     not_evaluated += 1
+		"""
         print("{0} total PythonExpression{1} found".format(len(expression_elements), "s" if len(expression_elements) > 1 else ""))
         print("{0} PythonExpression{1} successfully instantiated as literals.".format(evaluated, "s" if evaluated > 1 else ""))
         print("{0} PythonExpression{1} could not be instantiated as literal{2} because {3} functions.".format(
@@ -70,6 +71,7 @@ class PyAML:
         if errors:
             print("{0} PythonExpression{1} could not be instantiated as literal{2} because of errors.".format(
                 errors, "s" if errors > 1 else "", "s" if errors > 1 else ""))
+		"""
 
     def save(self, filename=None):
         if not filename:

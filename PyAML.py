@@ -42,8 +42,9 @@ class PyAML:
 
         preamble_file = self.root.find(
             "./InstanceHierarchy//InternalElement[@Name='PythonPreamble']/ExternalInterface/Attribute[@Name='refURI']/Value").text
-        with open(preamble_file) as preamble:
-            exec(preamble.read(), context_global, context_local)
+        if preamble_file is not None:
+            with open(preamble_file) as preamble:
+                exec(preamble.read(), context_global, context_local)
 
         expression_elements = self.root.findall("./InstanceHierarchy//Attribute[@RefAttributeType='PyAMLlib/PythonExpression']")
 
@@ -63,15 +64,15 @@ class PyAML:
                 else:
                     element.fun = result
                     not_evaluated += 1
-		"""
+        """
         print("{0} total PythonExpression{1} found".format(len(expression_elements), "s" if len(expression_elements) > 1 else ""))
         print("{0} PythonExpression{1} successfully instantiated as literals.".format(evaluated, "s" if evaluated > 1 else ""))
         print("{0} PythonExpression{1} could not be instantiated as literal{2} because {3} functions.".format(
-            not_evaluated, "s" if not_evaluated > 1 else "", "s" if not_evaluated > 1 else "", "they are" if not_evaluated > 1 else "it is a"))
+            not_evaluated, "s" if not_evaluated > 1 else "", "s" if not_evaluated > 1 else "", "they are" if not_evaluated > 1 else "it is a")
         if errors:
             print("{0} PythonExpression{1} could not be instantiated as literal{2} because of errors.".format(
                 errors, "s" if errors > 1 else "", "s" if errors > 1 else ""))
-		"""
+        """
 
     def save(self, filename=None):
         if not filename:

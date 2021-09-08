@@ -12,7 +12,7 @@ It allows to:
 
 Examples
 --------
-Examples of a Python code using PyAutomationML and Python-enhanced AutomationML can be found in the [examples]() directory.
+Examples of a Python code using PyAutomationML and Python-enhanced AutomationML can be found in the [examples](https://github.com/CIIRC-ISI/PyAML/tree/main/Examples) directory.
 The directory contains the following files:
 - main.py - an example of PyAutomationML usage 
 - Testbed.aml - an example of Python-enhanced AutomationML file for processing in main.py
@@ -20,4 +20,4 @@ The directory contains the following files:
 
 *) For more information, see upcoming paper at [IEEE ETFA 2021](https://2021.ieee-etfa.org/)
 
-**) [AutomationML foundation](https://www.automationml.org/)
+**) [AutomationML association](https://www.automationml.org/)

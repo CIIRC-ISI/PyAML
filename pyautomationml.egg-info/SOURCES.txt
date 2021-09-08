@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+pyautomationml/__init__.py
+pyautomationml/pyautomationml.py
+pyautomationml.egg-info/PKG-INFO
+pyautomationml.egg-info/SOURCES.txt
+pyautomationml.egg-info/dependency_links.txt
+pyautomationml.egg-info/requires.txt
+pyautomationml.egg-info/top_level.txt

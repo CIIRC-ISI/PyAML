@@ -1,3 +1,18 @@
+Metadata-Version: 2.1
+Name: pyautomationml
+Version: 1.0
+Summary: Library for processing AutomationML files in python
+Home-page: https://github.com/CIIRC-ISI/PyAML
+Author: CIIRC ISI Microteam
+Author-email: doudape1@fel.cvut.cz
+License: BSD
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 PyAutomationML
 -----
 
@@ -20,3 +35,5 @@ The directory contains the following files:
 
 *) For more information, see upcoming paper at [IEEE ETFA 2021](https://2021.ieee-etfa.org/)
 **) [AutomationML foundation](https://www.automationml.org/)
+
+

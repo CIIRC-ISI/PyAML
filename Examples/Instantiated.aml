@@ -1,0 +1,54 @@
+<CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FileName="Testbed.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
+  <InstanceHierarchy Name="Testbed">
+    <Version>1.0.0</Version>
+    <InternalElement Name="PythonPreamble" ID="13706026-d427-47f5-84c1-ed3e9ec250e8">
+      <ExternalInterface Name="File" ID="3b0a32db-019a-40fa-8038-81a491879877">
+        <Attribute Name="refURI" AttributeDataType="xs:string">
+          <Value>./preamble.py</Value>
+        </Attribute>
+      </ExternalInterface>
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole"/>
+    </InternalElement>
+    <InternalElement Name="ControlSystem" ID="59c87727-27be-48a5-873c-ac596f3e43a8">
+      <InternalElement Name="MES" ID="7db1638e-53ab-41e0-a676-0e31d1e9d84a">
+        <Attribute Name="Configuration" AttributeDataType="xs:string" RefAttributeType="PyAMLLib/PythonExpression">
+          <!--Example of a simple expression where a variable "configuration" from the preamble file is used-->
+          <Value>Configuration is set to 1</Value>
+        </Attribute>
+        <Attribute Name="ERPAddress" AttributeDataType="xs:string" RefAttributeType="PyAMLLib/PythonExpression">
+          <!--Example usage of the ancestors variable available for each expression element
+              The Ancestors variable stores all xml elements on the path from the expression element (ancestors[0])
+              to the root element (ancestors[-1])
+              In this example the ancestors variable is used to inherit a value from an attribute of a different
+              AutomationML InternalElement-->
+          <Value>http://ciirc.cvut.cz:6656</Value>
+        </Attribute>
+        <Attribute Name="Addition" AttributeDataType="xs:string" RefAttributeType="PyAMLLib/PythonExpression">
+          <!--Example usage of a function defined in the preamble -->
+          <Value>Result is 4</Value>
+        </Attribute>
+        <Attribute Name="CurrentTime" AttributeDataType="xs:string" RefAttributeType="PyAMLLib/PythonExpression">
+          <!--Example of a lambda function definition
+              Note that all input arguments of the function defined in the preamble
+              must be written with a default value (e.g. ancestors=ancestors) to be available after expression evaluation
+              because of how Python handles Lambda expressions-->
+          <Value>lambda *args, ancestors=ancestors, ctime=ctime, **kwargs: "Current date and time is: {0}".format(ctime())</Value>
+        </Attribute>
+        <Attribute Name="InputData" AttributeDataType="xs:string" RefAttributeType="PyAMLLib/PythonExpression">
+          <!--Example of a lambda function definition with an argument called "data" supplied at runtime
+              Note that the data argument does not have the default value-->
+          <Value>lambda *args, data, ancestors=ancestors, **kwargs: "The data passed to {0}: {1}".format(ancestors[1].get('Name'), data)</Value>
+        </Attribute>
+      </InternalElement>
+      <InternalElement Name="ERP" ID="1f8b963e-f9a3-4eec-b065-4b32ee84c98a">
+        <Attribute Name="Address" AttributeDataType="xs:string">
+          <Value>http://ciirc.cvut.cz</Value>
+        </Attribute>
+      </InternalElement>
+    </InternalElement>
+  </InstanceHierarchy>
+  <AttributeTypeLib Name="PyAMLLib">
+    <Version>1.0.0</Version>
+    <AttributeType Name="PythonExpression" AttributeDataType="xs:string"/>
+  </AttributeTypeLib>
+</CAEXFile>

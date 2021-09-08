@@ -12,7 +12,7 @@ setup(
     url="https://github.com/CIIRC-ISI/PyAML",
     author="CIIRC ISI Microteam",
     author_email="doudape1@fel.cvut.cz",
-    version='1.0',
+    version='1.0.1',
     packages=['pyautomationml'],
     license="BSD",
     classifiers=[

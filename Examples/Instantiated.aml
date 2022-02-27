@@ -2,18 +2,18 @@
   <InstanceHierarchy Name="Testbed">
     <Version>1.0.0</Version>
     <InternalElement Name="PythonPreamble" ID="13706026-d427-47f5-84c1-ed3e9ec250e8">
-      <ExternalInterface Name="File" ID="3b0a32db-019a-40fa-8038-81a491879877">
-        <Attribute Name="refURI" AttributeDataType="xs:string">
-          <Value>./preamble.py</Value>
-        </Attribute>
-      </ExternalInterface>
+      <Attribute Name="Content">
+        <Value>
+          from preamble import *
+        </Value>
+      </Attribute>
       <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole"/>
     </InternalElement>
     <InternalElement Name="ControlSystem" ID="59c87727-27be-48a5-873c-ac596f3e43a8">
       <InternalElement Name="MES" ID="7db1638e-53ab-41e0-a676-0e31d1e9d84a">
         <Attribute Name="Configuration" AttributeDataType="xs:string" RefAttributeType="PyAMLLib/PythonExpression">
           <!--Example of a simple expression where a variable "configuration" from the preamble file is used-->
-          <Value>"Configuration is set to {0}".format(configuration)</Value>
+          <Value>Configuration is set to 1</Value>
         </Attribute>
         <Attribute Name="ERPAddress" AttributeDataType="xs:string" RefAttributeType="PyAMLLib/PythonExpression">
           <!--Example usage of the ancestors variable available for each expression element
@@ -21,11 +21,11 @@
               to the root element (ancestors[-1])
               In this example the ancestors variable is used to inherit a value from an attribute of a different
               AutomationML InternalElement-->
-          <Value>"{0}:6656".format(ancestors[2].get_child_by_name('ERP').get_child_by_name('Address').text())</Value>
+          <Value>http://ciirc.cvut.cz:6656</Value>
         </Attribute>
         <Attribute Name="Addition" AttributeDataType="xs:string" RefAttributeType="PyAMLLib/PythonExpression">
           <!--Example usage of a function defined in the preamble -->
-          <Value>"Result is {0}".format(add2(2))</Value>
+          <Value>Result is 4</Value>
         </Attribute>
         <Attribute Name="CurrentTime" AttributeDataType="xs:string" RefAttributeType="PyAMLLib/PythonExpression">
           <!--Example of a lambda function definition

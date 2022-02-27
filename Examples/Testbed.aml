@@ -2,11 +2,11 @@
   <InstanceHierarchy Name="Testbed">
     <Version>1.0.0</Version>
     <InternalElement Name="PythonPreamble" ID="13706026-d427-47f5-84c1-ed3e9ec250e8">
-      <ExternalInterface Name="File" ID="3b0a32db-019a-40fa-8038-81a491879877">
-        <Attribute Name="refURI" AttributeDataType="xs:string">
-          <Value>./preamble.py</Value>
-        </Attribute>
-      </ExternalInterface>
+      <Attribute Name="Content">
+        <Value>
+          from preamble import *
+        </Value>
+      </Attribute>
       <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
     </InternalElement>
     <InternalElement Name="ControlSystem" ID="59c87727-27be-48a5-873c-ac596f3e43a8">
@@ -21,7 +21,7 @@
               to the root element (ancestors[-1])
               In this example the ancestors variable is used to inherit a value from an attribute of a different
               AutomationML InternalElement-->
-          <Value>"{0}:6656".format(ancestors[2].get_child_by_name('ERP').get_child_by_name('Address').text())</Value>
+          <Value>"{0}:6656".format(ancestors[2].ERP.Address.text())</Value>
         </Attribute>
         <Attribute Name="Addition" AttributeDataType="xs:string" RefAttributeType="PyAMLLib/PythonExpression">
           <!--Example usage of a function defined in the preamble -->
